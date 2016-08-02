@@ -1,0 +1,37 @@
+.commentBox{
+	border:1px solid black;
+	width:500px;
+	text-align: center;
+	padding:16px;
+}
+
+.titleBox{
+	border:1px solid black;
+	color: black;
+	width: 500px;
+	text-align: center;
+	padding:16px;
+}
+
+.formBox{
+	border:1px solid black;
+	width: 500px;
+	text-align: left;
+	padding:16px;
+}
+
+.pessoaBox{
+	border:1px solid white;
+	width: 484 px;
+	text-align: left;
+	padding:16px;
+	background-color: #6495ED;
+}
+
+.enderecoBox{
+	border:1px solid white;
+	width: 484 px;
+	text-align: left;
+	padding:16px;
+	background-color: #6495ED;
+}
