@@ -10,12 +10,15 @@ var FormularioEndereco = FormEndereco.FormularioEndereco;
 export default React.createClass({
     render: function(){
     	return(
-    		<div className="bodyBox">
-    		    <TitleBox>
-    		       Cadastro de Endereços
-    		    </TitleBox>
+    		<div className="container">
+                <div className="panel panel-primary">
+    		      <TitleBox>
+    		           Cadastro de Endereços
+    		      </TitleBox>
+
             <br/>
             <FormularioEndereco />
+            </div>
     		</div>
     	);
     }

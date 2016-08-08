@@ -10,13 +10,15 @@ var FormularioPessoa = FormPessoa.FormularioPessoa;
 export default React.createClass({
     render: function(){
     	return(
-    		<div className="bodyBox">
+    		<div className="container">
+                <div className="panel panel-primary">
     		    <TitleBox>
     		       Cadastro de Pessoas
     		    </TitleBox>
                 <br/>
             <FormularioPessoa />
     		</div>
+            </div>
     	);
     }
 });

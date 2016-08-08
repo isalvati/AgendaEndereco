@@ -36,32 +36,39 @@ var FormularioPessoa = React.createClass({
     },
     render: function(){
      	return(
-     		<div className="formBox">
+     		<div className="panel-body">
             <br />
-	     	    <form className="formPessoa">
-                     <label htmlFor="nome">Nome: </label>
-			        <input type="text" 
-			            placeholder="Ex: Fulano de Tal" 
-                        name="nome"
-	                    onChange={this.handleNomeChange} /><br /><br />
-                        <label htmlFor="cpf">CPF: </label>
-			        <input type="text" 
-			            placeholder="Ex: 000.000.000-00"
-                        name="cpf"
-			            onChange={this.handleCPFChange} /><br /><br />
-                        <label htmlFor="nascimento">Data de Nascimento: </label>
-                    <input type="text" 
-                        placeholder="Ex: 01/01/1990"
-                        name="nascimento"
-                        onChange={this.handleNascimentoChange} /><br /><br />
-			        <input type="button" value="Cadastrar" onClick={this.handleButtonClick}/><br /><br />
-	            </form>
+                <form className="formPessoa">
+                        <div className="input-group">
+                            <span className="input-group-addon" id="basic-addon1">Nome</span>
+                            <input type="text"  className="form-control" name="nome" placeholder="Ex.: Fulano de Tal" aria-describedby="basic-addon1"  onChange={this.handleNomeChange}/>
+                        </div>
+                        <br />
+<div className="input-group">
+                            <span className="input-group-addon" id="basic-addon1">CPF:</span>
+                            <input type="text"  className="form-control" name="cpf" placeholder="Ex.: 000.000.000-00" aria-describedby="basic-addon1"  onChange={this.handleCPFChange}/>
+                        </div>                       
+                        <br />
+<div className="input-group">
+                            <span className="input-group-addon" id="basic-addon1">Data de Nascimento:</span>
+                            <input type="text"  className="form-control" name="telefone" placeholder="Ex.: 01/01/1990" aria-describedby="basic-addon1"  onChange={this.handleNascimentoChange}/>
+                        </div>
+                        <br />
+
+                    <div className="btn-group" role="group">
+                         <input type="button"  className="btn btn-success" value="Cadastrar" onClick={this.handleButtonClick}/>
+                        <a href="./#/" type="button" className="btn btn-default">Cancelar</a> 
+                    </div>
+
+                </form>
+                
+                <br/>
 	            {this.state.pessoas.map(pessoa =>{
 	            	return (
-	            		<div className="pessoaBox">
-			            	Nome:{pessoa.nome}<br />
-			                CPF:{pessoa.cpf}<br />
-                            Nascimento:{pessoa.nascimento}<br /><br />
+	            		<div className="alert alert-info">
+			            	<b>Nome: </b>{pessoa.nome}<br />
+			                <b>CPF: </b>{pessoa.cpf}<br />
+                            <b>Nascimento: </b>{pessoa.nascimento}
 		                </div>
 	                )
 	            })

@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Usuário do Banco de Dados -->
+		<property name="hibernate.connection.username">
+			root
+		</property>
+		<!--  Senha do Usuario -->
+		<property name="hibernate.connection.password">
+			root
+		</property>
+		<!--  chamada de URL ou string de conexão, deve ser configurada de acordo com documentação do banco de dados -->
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost/agenda
+		</property>
+		<!--  driver que deve ser utilizado -->
+		<property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<!--   dialeto a ser utilizado para a comunicação com o banco de dados -->
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQL5InnoDBDialect
+		</property>
+		<!-- como o hibernate vai se comportar em relação às tabelas do banco. 
+		Com o valor update ele vai criar ou modificar tabelas sempre que necessário. -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!--   flag que indica se os SQLs gerados devem ser impressos -->
+		<property name="show_sql">true</property>
+		<!--  format_sql - flag que indica se os SQLs devem ser formatados -->
+		<property name="format_sql">true</property>
+		<!-- entidades -->
+   		<mapping class="br.com.caelum.vraptor.modelo.Pessoa" />
+   		<mapping class="br.com.caelum.vraptor.modelo.Endereco" />
+		
+	</session-factory>
+</hibernate-configuration>

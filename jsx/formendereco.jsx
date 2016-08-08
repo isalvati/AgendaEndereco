@@ -43,38 +43,43 @@ var FormularioEndereco = React.createClass({
     },
     render: function(){
      	return(
-     		<div className="formBox">
+     		<div className="panel-body">
             <br />
 	     	    <form className="formEnderecos">
-                    <label htmlFor="rua">Rua: </label>
-			        <input type="text" 
-			            placeholder="Ex: Av. Silvio Menicucci" 
-                        name="rua"
-	                    onChange={this.handleRuaChange} /><br /><br />
-                    <label htmlFor="bairro">Bairro: </label>
-			        <input type="text" 
-			            placeholder="Ex: Centro"
-                        name="bairro"
-			            onChange={this.handleBairroChange} /><br /><br />
-                     <label htmlFor="telefone">Telefone: </label>
-                    <input type="text" 
-                        placeholder="Ex: (35) 9 9999-9999"
-                        name="telefone"
-                        onChange={this.handleTelefoneChange} /><br /><br />
-                    <label htmlFor="pessoa">Pessoa: </label>
-                    <input type="text" 
-                        placeholder="Ex: Fulano de Tal"
-                        name="pessoa"
-                        onChange={this.handlePessoaChange} /><br /><br />
-			        <input type="button" value="Cadastrar" onClick={this.handleButtonClick}/><br /><br />
+                        <div className="input-group">
+                            <span className="input-group-addon" id="basic-addon1">Rua</span>
+                            <input type="text"  className="form-control" name="rua" placeholder="Ex.: Av. Silvio Menicucci" aria-describedby="basic-addon1"  onChange={this.handleRuaChange}/>
+                        </div>
+                        <br />
+<div className="input-group">
+                            <span className="input-group-addon" id="basic-addon1">Bairro</span>
+                            <input type="text"  className="form-control" name="bairro" placeholder="Ex.: Centro" aria-describedby="basic-addon1"  onChange={this.handleBairroChange}/>
+                        </div>                       
+                        <br />
+<div className="input-group">
+                            <span className="input-group-addon" id="basic-addon1">Telefone</span>
+                            <input type="text"  className="form-control" name="telefone" placeholder="Ex.: (35) 9 9999-9999" aria-describedby="basic-addon1"  onChange={this.handleTelefoneChange}/>
+                        </div>
+                        <br />
+<div className="input-group">
+                            <span className="input-group-addon" id="basic-addon1">Pessoa</span>
+                            <input type="text"  className="form-control" name="pessoa" placeholder="Ex.: Fulano de Tal" aria-describedby="basic-addon1"  onChange={this.handlePessoaChange}/>
+                        </div>
+                        <br />
+                    <div className="btn-group" role="group">
+			         <input type="button"  className="btn btn-success" value="Cadastrar" onClick={this.handleButtonClick}/>
+                    <a href="./#/" type="button" className="btn btn-default">Cancelar</a> 
+                    </div>
 	            </form>
+                <br/>
 	            {this.state.enderecos.map(endereco =>{
 	            	return (
-	            		<div className="enderecoBox">
-			            	Rua:{endereco.rua}<br />
-			                Bairro:{endereco.bairro}<br />
-                            Telefone:{endereco.telefone}<br />
-                            Pessoa:{endereco.pessoa}<br /><br />
+                       
+	            		<div className="alert alert-info">
+			            	<b>Rua: </b>{endereco.rua}<br />
+			                <b>Bairro: </b>{endereco.bairro}<br />
+                            <b>Telefone: </b>{endereco.telefone}<br />
+                            <b>Pessoa: </b>{endereco.pessoa}
 		                </div>
 	                )
 	            })
