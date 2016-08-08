@@ -49,5 +49,23 @@ private static Logger LOGGER = Logger.getLogger(PessoaController.class);
 		
 		result.use(json()).from(pessoa).serialize();
 	}
-
+	
+	
+	/*@Get("/pessoas/{pessoa.id}")
+	public void findPessoa (Pessoa pessoa) {
+		PessoaDAO pessoaDAO = new PessoaDAO();
+		Pessoa pessoa1 = new Pessoa();
+		pessoa1 = pessoaDAO.findPessoa(pessoa.getId());
+		LOGGER.info("ID: " + pessoa.getId());
+		result.use(json()).from(pessoa1).serialize();
+	}*/
+	
+	@Get("/pessoas/{pessoa.login}")
+	public void findPessoa (Pessoa pessoa) {
+		PessoaDAO pessoaDAO = new PessoaDAO();
+		Pessoa pessoa1 = new Pessoa();
+		pessoa1 = pessoaDAO.findPessoa(pessoa.getLogin());
+		LOGGER.info("LOGIN: " + pessoa.getLogin());
+		result.use(json()).from(pessoa1).serialize();
+	}
 }
