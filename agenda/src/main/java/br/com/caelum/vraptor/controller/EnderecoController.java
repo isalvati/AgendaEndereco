@@ -51,5 +51,14 @@ public class EnderecoController {
 		
 		result.use(json()).from(end).serialize();
 	}
+	
+	/*@Get("/enderecos")
+	public void listarEnderecosUsuario (int idUsuario) {
+		EnderecoDAO endDAO = new EnderecoDAO();
+		List<Endereco> end = new ArrayList<Endereco>();
+		end = endDAO.retornaEnderecosUsuario(idUsuario);
+		
+		result.use(json()).from(end).serialize();
+	}*/
 
 }

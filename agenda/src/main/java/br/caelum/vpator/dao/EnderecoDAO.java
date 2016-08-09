@@ -62,5 +62,21 @@ public class EnderecoDAO {
 		return retorno;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Endereco> retornaEnderecosUsuario(int idPessoa){
+		abrirConexao();
+		List<Endereco> e = new ArrayList<Endereco>();
+		
+		e = (List<Endereco>)this.session.createSQLQuery("select * from enderecos e where e.id_pessoa = :id_pessoa")
+				.setParameter("id_pessoa", idPessoa)
+				.addEntity(Endereco.class).getResultList();
+		
+		//e = this.session.createQuery("select * from enderecos e where e.id_pessoa = :id_pessoa", Endereco.class)
+		//.setParameter("id_pessoa", idPessoa)
+		//.getResultList();
+		fecharConexao();
+		return e;
+	}
+	
 	
 }

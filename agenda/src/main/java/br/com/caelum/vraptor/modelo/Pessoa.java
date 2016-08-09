@@ -1,5 +1,6 @@
 package br.com.caelum.vraptor.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pessoas")
-public class Pessoa {
+public class Pessoa implements Serializable{
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,6 +98,12 @@ public class Pessoa {
 
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
+	}
+	
+	@Override
+	public String toString() {
+		return "Pessoa [id=" + id + ", login=" + login + ", status=" + status + ", nome=" + nome + ", cpf=" + cpf
+				+ ", dataNascimento=" + dataNascimento + ", enderecos=" + enderecos.toString() + "]";
 	}
 
 }

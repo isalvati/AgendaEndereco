@@ -1,5 +1,7 @@
 package br.com.caelum.vraptor.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 //Define Entidade e tabela
 @Entity
 @Table(name = "enderecos")
-public class Endereco {
+public class Endereco implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,5 +75,12 @@ public class Endereco {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+
+	@Override
+	public String toString() {
+		return "Endereco [id=" + id + ", rua=" + rua + ", bairro=" + bairro + ", telefone=" + telefone + ", pessoa="
+				+ pessoa.getId() + "]";
+	}
+	
 
 }
