@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 var FormularioPessoa = React.createClass({
     getInitialState(){
     	return {
@@ -24,12 +26,48 @@ var FormularioPessoa = React.createClass({
             nascimento:e.target.value
         });
     },
+
+    getContacts () {
+
+     jQuery.ajax({
+         type: "GET",
+         url: "http://localhost:8080/vraptor-blank-project/pessoas",
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function (data, status, jqXHR) {
+             alert(data);
+         },
+
+         error: function (jqXHR, status) {
+            alert("ERRO");
+         }
+    });
+    },
+
+    onButtonClick(){
+        $.ajax({ 
+           type: "POST",
+           dataType: "json",
+           data : JSON.stringify({
+                       "login": "isalvati",
+                        "status": "1", 
+                        "nome": "Igor Salvati",
+                        "cpf": "08903775619",
+                        "dataNascimento": "01/12/1993" 
+                }),
+           url: "http://localhost:8080/vraptor-blank-project/pessoas",
+            success: function(data){        
+                alert(data);
+           }
+        });
+    },
     handleButtonClick(){
     	var pessoa = {
     		nome:this.state.nome,
     		cpf: this.state.cpf,
             nascimento: this.state.nascimento
     	}
+        
 		this.setState({ 
 		    pessoas: this.state.pessoas.concat([pessoa])
 		});
@@ -56,7 +94,7 @@ var FormularioPessoa = React.createClass({
                         <br />
 
                     <div className="btn-group" role="group">
-                         <input type="button"  className="btn btn-success" value="Cadastrar" onClick={this.handleButtonClick}/>
+                         <input type="button"  className="btn btn-success" value="Cadastrar" onClick={this.onButtonClick}/>
                         <a href="./#/" type="button" className="btn btn-default">Cancelar</a> 
                     </div>
 
